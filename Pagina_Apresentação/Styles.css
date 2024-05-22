@@ -13,7 +13,7 @@ body {
     /* Cor pastel para a navbar */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* Sombra suave */
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .container {
@@ -23,10 +23,9 @@ body {
     max-width: 1200px;
     margin: 0 auto;
 }
-
-.logo {
-    font-size: 1.5rem;
-    color: #333;
+.logo-svg{
+    width: 200px;
+    height: auto;
 }
 
 .nav-links {
@@ -110,6 +109,5 @@ p {
 
 .buttons button:hover {
     transform: scale(1.1);
-    background-color: #ff8a8a;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+    background-color: #ff8a8a;}
+    
