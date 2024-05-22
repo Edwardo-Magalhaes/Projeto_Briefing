@@ -1,0 +1,110 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    /* Cor de fundo clara */
+}
+
+.navbar {
+    background-color: #ffe4e1;
+    /* Cor pastel para a navbar */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    padding: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #ffb6c1;
+    /* Cor pastel ao passar o mouse ou link ativo */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1,
+p {
+    position: relative;
+    /* Garante que o posicionamento seja relativo ao contêiner pai */
+    left: -350px;
+    /* Move os elementos para a esquerda */
+    bottom: 35px;
+}
+
+.content img {
+    max-width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.buttons button {
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: #ffb6c1;
+    /* Cor pastel para botões */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    /* Garante que o posicionamento seja relativo ao contêiner pai */
+    left: -350px;
+    /* Move os elementos para a esquerda */
+    bottom: 80px;
+}
+
+.buttons button:hover {
+    background-color: #ff8a8a;
+    /* Cor pastel mais escura ao passar o mouse */
+}
+
+#vetor {
+    position: relative;
+    right: -350px;
+}
