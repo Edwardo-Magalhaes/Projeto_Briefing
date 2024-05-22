@@ -73,38 +73,43 @@ p {
 .content img {
     max-width: 100%;
     height: auto;
-    margin: 2rem 0;
+    position: relative;
+    /* Garante que o posicionamento seja relativo ao contêiner pai */
+    left: 20px;
+    /* Move a imagem alguns pixels para a direita */
+    bottom: 20px;
+    /* Move a imagem alguns pixels para baixo */
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 3rem;
-}
-
-.buttons button {
-    font-size: 18px;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 50px;
-    background-color: #ffb6c1;
-    /* Cor pastel para botões */
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    gap: 1rem;
     position: relative;
     /* Garante que o posicionamento seja relativo ao contêiner pai */
     left: -350px;
-    /* Move os elementos para a esquerda */
-    bottom: 80px;
+    /* Move os botões para a mesma posição do h1 e p */
+    bottom: 35px;
+    /* Move os botões para a mesma posição do h1 e p */
+}
+
+.buttons button {
+    padding: 10px 20px;
+    /* Ajusta o padding para os botões ficarem menores */
+    font-size: 16px;
+    border-radius: 20px;
+    /* Define o formato de pílula para os botões */
+    background-color: #ffb6c1;
+    /* Cor pastel para botões */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Adiciona transições suaves */
 }
 
 .buttons button:hover {
+    transform: scale(1.1);
     background-color: #ff8a8a;
-    /* Cor pastel mais escura ao passar o mouse */
-}
-
-#vetor {
-    position: relative;
-    right: -350px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
