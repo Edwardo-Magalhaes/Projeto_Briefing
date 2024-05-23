@@ -1,201 +1,217 @@
 /* styles.css */
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    /* Cor de fundo clara */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-    background-color: #ffe4e1;
-    /* Cor pastel para a navbar */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra suave */
-    padding: 2rem;
+  background-color: #ffe4e1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+  z-index: 1; /* Garante que a navbar fique acima do fundo */
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1; /* Garante que o container fique acima do fundo */
 }
-.logo-svg{
-    width: 200px;
-    height: auto;
+
+.logo-svg {
+  width: 250px;
+  height: auto;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
 .nav-links li {
-    display: inline;
+  display: inline;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .nav-links a:hover {
-    background-color: #ffb6c1;
-    /* Cor pastel ao passar o mouse ou link ativo */
+  background-color: #ff0026;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  z-index: 1; /* Garante que o conteúdo fique acima do fundo */
+  overflow: hidden; /* Garante que o pseudoelemento não ultrapasse a área de conteúdo */
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+  background-size: 800% 800%;
+  animation: gradientBackground 10s ease infinite;
+  filter: blur(20px); /* Aplica o desfoque gaussiano */
+  z-index: -1; /* Coloca atrás do conteúdo */
+  pointer-events: none; /* Garante que não interfira com qualquer interação */
+}
+
+@keyframes gradientBackground {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
 
 h1,
 p {
-    position: relative;
-    /* Garante que o posicionamento seja relativo ao contêiner pai */
-    left: -350px;
-    /* Move os elementos para a esquerda */
-    bottom: 35px;
+  position: relative;
+  left: -550px;
+  bottom: 45px;
 }
 
 .content img {
-    max-width: 100%;
-    height: auto;
-    position: relative;
-    /* Garante que o posicionamento seja relativo ao contêiner pai */
-    left: 20px;
-    /* Move a imagem alguns pixels para a direita */
-    bottom: 20px;
-    /* Move a imagem alguns pixels para baixo */
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  left: 20px;
+  bottom: 20px;
 }
 
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    position: relative;
-    /* Garante que o posicionamento seja relativo ao contêiner pai */
-    left: -350px;
-    /* Move os botões para a mesma posição do h1 e p */
-    bottom: 35px;
-    /* Move os botões para a mesma posição do h1 e p */
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  position: relative;
+  left: -550px;
+  bottom: 45px;
 }
 
 .buttons button {
-    padding: 15px 40px;
-    /* Ajusta o padding para os botões ficarem menores */
-    font-size: 16px;
-    border-radius: 20px;
-    /* Define o formato de pílula para os botões */
-    /*background-color: #ffb6c1;*/
-    /* Cor pastel para botões */
-    color: #000000;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    /* Adiciona transições suaves */
+  padding: 15px 40px;
+  font-size: 16px;
+  border-radius: 40px;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .buttons button:hover {
-    transform: scale(1.1);
-    /*background-color: #ff8a8a;*/
+  transform: scale(1.1);
 }
+
 .animated-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 16px 36px;
-    border: 4px solid;
-    border-color: transparent;
-    font-size: 16px;
-    background-color: inherit;
-    border-radius: 100px;
-    font-weight: 600;
-    color: greenyellow;
-    box-shadow: 0 0 0 2px greenyellow;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
-  .animated-button svg {
-    position: absolute;
-    width: 24px;
-    fill: greenyellow;
-    z-index: 9;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
-  .animated-button .arr-1 {
-    right: 16px;
-  }
-  
-  .animated-button .arr-2 {
-    left: -25%;
-  }
-  
-  .animated-button .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background-color: greenyellow;
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
-  .animated-button .text {
-    position: relative;
-    z-index: 1;
-    transform: translateX(-12px);
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-  }
-  
-  .animated-button:hover {
-    box-shadow: 0 0 0 12px transparent;
-    color: #212121;
-    border-radius: 12px;
-  }
-  
-  .animated-button:hover .arr-1 {
-    right: -25%;
-  }
-  
-  .animated-button:hover .arr-2 {
-    left: 16px;
-  }
-  
-  .animated-button:hover .text {
-    transform: translateX(12px);
-  }
-  
-  .animated-button:hover svg {
-    fill: #212121;
-  }
-  
-  .animated-button:active {
-    scale: 0.95;
-    box-shadow: 0 0 0 4px greenyellow;
-  }
-  
-  .animated-button:hover .circle {
-    width: 220px;
-    height: 220px;
-    opacity: 1;
-  }
-    
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 36px;
+  border: 4px solid;
+  border-color: transparent;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 100px;
+  font-weight: 600;
+  color: greenyellow;
+  box-shadow: 0 0 0 2px greenyellow;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button svg {
+  position: absolute;
+  width: 24px;
+  fill: greenyellow;
+  z-index: 9;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .arr-1 {
+  right: 16px;
+}
+
+.animated-button .arr-2 {
+  left: -25%;
+}
+
+.animated-button .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: greenyellow;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button .text {
+  position: relative;
+  z-index: 1;
+  transform: translateX(-12px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 12px transparent;
+  color: #212121;
+  border-radius: 12px;
+}
+
+.animated-button:hover .arr-1 {
+  right: -25%;
+}
+
+.animated-button:hover .arr-2 {
+  left: 16px;
+}
+
+.animated-button:hover .text {
+  transform: translateX(12px);
+}
+
+.animated-button:hover svg {
+  fill: #212121;
+}
+
+.animated-button:active {
+  scale: 0.95;
+  box-shadow: 0 0 0 4px greenyellow;
+}
+
+.animated-button:hover .circle {
+  width: 220px;
+  height: 220px;
+  opacity: 1;
+}
