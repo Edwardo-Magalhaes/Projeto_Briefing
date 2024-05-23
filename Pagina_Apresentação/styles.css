@@ -83,7 +83,7 @@ p {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 3rem;
     position: relative;
     /* Garante que o posicionamento seja relativo ao contêiner pai */
     left: -350px;
@@ -93,14 +93,14 @@ p {
 }
 
 .buttons button {
-    padding: 10px 20px;
+    padding: 15px 40px;
     /* Ajusta o padding para os botões ficarem menores */
     font-size: 16px;
     border-radius: 20px;
     /* Define o formato de pílula para os botões */
-    background-color: #ffb6c1;
+    /*background-color: #ffb6c1;*/
     /* Cor pastel para botões */
-    color: #fff;
+    color: #000000;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
