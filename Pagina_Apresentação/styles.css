@@ -83,7 +83,7 @@ p {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
     position: relative;
     /* Garante que o posicionamento seja relativo ao contêiner pai */
     left: -350px;
@@ -93,14 +93,14 @@ p {
 }
 
 .buttons button {
-    padding: 15px 40px;
+    padding: 10px 20px;
     /* Ajusta o padding para os botões ficarem menores */
     font-size: 16px;
     border-radius: 20px;
     /* Define o formato de pílula para os botões */
-    /*background-color: #ffb6c1;*/
+    background-color: #ffb6c1;
     /* Cor pastel para botões */
-    color: #000000;
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
@@ -198,4 +198,4 @@ p {
     height: 220px;
     opacity: 1;
   }
-  
+    
