@@ -1,32 +1,35 @@
+/* Estilos para o body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    width: 100vw; /* largura total da tela */
+    height: 100vh; /* altura total da tela */
+    overflow-x: hidden; /* Impede a rolagem horizontal */
 }
 
+/* Estilos para a navbar */
 .navbar {
     background-color: #ffe4e1;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
+    padding: 1rem;
     position: relative;
-    z-index: 1; /* Garante que a navbar fique acima do fundo */
+    z-index: 2; /* Garante que a navbar fique acima do conteúdo */
 }
 
+/* Estilos para o container */
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
-    z-index: 1; /* Garante que o container fique acima do fundo */
 }
 
+/* Estilos para a logo SVG */
 .logo-svg {
     width: 250px;
     height: auto;
 }
 
+/* Estilos para os links da navbar */
 .nav-links {
     list-style: none;
     display: flex;
@@ -50,45 +53,22 @@ body {
     background-color: #ff0026;
 }
 
+/* Estilos para o conteúdo */
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: calc(100vh - 4rem); /* Altura igual à altura da tela menos a altura da navbar */
     position: relative;
     z-index: 1; /* Garante que o conteúdo fique acima do fundo */
     overflow: hidden; /* Garante que o pseudoelemento não ultrapasse a área de conteúdo */
-    margin: -10px; /* Reduz as margens para minimizar bordas brancas */
+    margin-top: 4rem; /* Garante espaço para a navbar */
+    padding: 2rem;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
 }
 
-.content::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
-    background-size: 800% 800%;
-    animation: gradientBackground 10s ease infinite;
-    filter: blur(10px); /* Reduz o valor do desfoque gaussiano */
-    z-index: -1; /* Coloca atrás do conteúdo */
-    pointer-events: none; /* Garante que não interfira com qualquer interação */
-}
-
-@keyframes gradientBackground {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
+/* Estilos para imagens dentro do conteúdo */
 .content img {
     max-width: 100%;
     height: auto;
@@ -97,13 +77,11 @@ body {
     bottom: 20px;
 }
 
+/* Estilos para os botões */
 .buttons {
     display: flex;
     justify-content: center;
     gap: 3rem;
-    position: relative;
-    left: -550px;
-    bottom: 45px;
 }
 
 .buttons button {
@@ -120,6 +98,7 @@ body {
     transform: scale(1.1);
 }
 
+/* Estilos para os botões animados */
 .animated-button {
     position: relative;
     display: flex;
