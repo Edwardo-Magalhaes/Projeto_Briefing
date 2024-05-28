@@ -6,6 +6,7 @@ body {
     width: 100vw; /* largura total da tela */
     height: 100vh; /* altura total da tela */
     overflow-x: hidden; /* Impede a rolagem horizontal */
+    
 }
 
 /* Estilos para a navbar */
