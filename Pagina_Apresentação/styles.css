@@ -1,188 +1,51 @@
-/* Estilos para o body */
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
-    width: 100vw; /* largura total da tela */
-    height: 100vh; /* altura total da tela */
-    overflow-x: hidden; /* Impede a rolagem horizontal */
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Aplica a fonte Poppins a todos os elementos */
 }
 
-/* Estilos para a navbar */
-.navbar {
-    background-color: #ffe4e1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    position: relative;
-    z-index: 2; /* Garante que a navbar fique acima do conteúdo */
+body {
+    background-color: #3c9d6f;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
 }
 
-/* Estilos para o container */
+.background {
+    background-color: purple;
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Distribui os itens igualmente, com espaçamento entre eles */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    width: auto;
+    height: 100px; ;
 }
 
-/* Estilos para a logo SVG */
-.logo-svg {
-    width: 250px;
+.logo img {
+    width: 100px; /* Defina a largura da sua logo conforme necessário */
     height: auto;
+    margin-left: 50px; /* Isso manterá a proporção da imagem */
 }
 
-/* Estilos para os links da navbar */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
+ul {
+    list-style-type: none; /* Remove os marcadores de lista padrão */
+    margin-right: 50px;
 }
 
-.nav-links li {
-    display: inline;
+ul li {
+    display: inline-block; /* Para que os itens da lista fiquem na mesma linha */
+    margin-left: 20px; /* Adiciona um espaçamento entre os itens da lista */
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.nav-links a:hover {
-    background-color: #ff0026;
-}
-
-/* Estilos para o conteúdo */
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 4rem); /* Altura igual à altura da tela menos a altura da navbar */
-    position: relative;
-    z-index: 1; /* Garante que o conteúdo fique acima do fundo */
-    overflow: hidden; /* Garante que o pseudoelemento não ultrapasse a área de conteúdo */
-    margin-top: 4rem; /* Garante espaço para a navbar */
-    padding: 2rem;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
-}
-
-/* Estilos para imagens dentro do conteúdo */
-.content img {
-    max-width: 100%;
-    height: auto;
-    position: relative;
-    left: 20px;
-    bottom: 20px;
-}
-
-/* Estilos para os botões */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-}
-
-.buttons button {
-    padding: 15px 40px;
-    font-size: 16px;
-    border-radius: 40px;
+.btn-login {
+    /* Estilos para o botão de login */
+    padding: 10px 20px;
+    background-color: #ffffff;
     color: #000000;
     border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.buttons button:hover {
-    transform: scale(1.1);
-}
-
-/* Estilos para os botões animados */
-.animated-button {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 16px 36px;
-    border: 4px solid;
-    border-color: transparent;
-    font-size: 16px;
-    background-color: inherit;
-    border-radius: 100px;
-    font-weight: 600;
-    color: greenyellow;
-    box-shadow: 0 0 0 2px greenyellow;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button svg {
-    position: absolute;
-    width: 24px;
-    fill: greenyellow;
-    z-index: 9;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .arr-1 {
-    right: 16px;
-}
-
-.animated-button .arr-2 {
-    left: -25%;
-}
-
-.animated-button .circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    background-color: greenyellow;
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button .text {
-    position: relative;
-    z-index: 1;
-    transform: translateX(-12px);
-    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.animated-button:hover {
-    box-shadow: 0 0 0 12px transparent;
-    color: #212121;
-    border-radius: 12px;
-}
-
-.animated-button:hover .arr-1 {
-    right: -25%;
-}
-
-.animated-button:hover .arr-2 {
-    left: 16px;
-}
-
-.animated-button:hover .text {
-    transform: translateX(12px);
-}
-
-.animated-button:hover svg {
-    fill: #212121;
-}
-
-.animated-button:active {
-    scale: 0.95;
-    box-shadow: 0 0 0 4px greenyellow;
-}
-
-.animated-button:hover .circle {
-    width: 220px;
-    height: 220px;
-    opacity: 1;
+    border-radius: 5px;
+    text-decoration: none;
 }
