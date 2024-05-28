@@ -3,26 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Briefing</title>
 </head>
 <body>
-    <div class="background">
-        <header>
-            <div class="container">
-                <div class="logo">
-                    <img src="caminho/para/sua/imagem.png" alt="Descrição da Imagem">
-                </div>
-                <ul>
-                    <li>
-                        <a href="#">Sobre nós</a>
-                    </li>
-                    <li>
-                        <a href="#"><button class="btn-login">Login</button></a>
-                    </li>
-                </ul>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
             </div>
-        </header>
-    </div> 
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li class="dropdown">
+                        <a href="#">Serviços</a>
+                        <div class="dropdown-content">
+                            <a href="#">Serviço 1</a>
+                            <a href="#">Serviço 2</a>
+                            <a href="#">Serviço 3</a>
+                        </div>
+                    </li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <h1>Bem-vindo ao Meu Site</h1>
+            <p>Este é um site de exemplo.</p>
+            <button class="btn">Saiba Mais</button>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Meu Site. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
 </html>

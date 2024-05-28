@@ -1,51 +1,108 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
-
+/* Reset CSS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif; /* Aplica a fonte Poppins a todos os elementos */
 }
 
+/* Basic Styles */
 body {
-    background-color: #3c9d6f;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-}
-
-.background {
-    background-color: purple;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between; /* Distribui os itens igualmente, com espaçamento entre eles */
-    align-items: center; /* Alinha os itens verticalmente ao centro */
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header .logo img {
+    height: 50px;
     width: auto;
-    height: 100px; ;
 }
 
-.logo img {
-    width: 100px; /* Defina a largura da sua logo conforme necessário */
-    height: auto;
-    margin-left: 50px; /* Isso manterá a proporção da imagem */
+nav ul {
+    list-style: none;
 }
 
-ul {
-    list-style-type: none; /* Remove os marcadores de lista padrão */
-    margin-right: 50px;
+nav ul li {
+    display: inline;
+    margin-left: 20px;
 }
 
-ul li {
-    display: inline-block; /* Para que os itens da lista fiquem na mesma linha */
-    margin-left: 20px; /* Adiciona um espaçamento entre os itens da lista */
-}
-
-.btn-login {
-    /* Estilos para o botão de login */
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
+    padding: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+section {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #555;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.full-width {
+    background-color: #f4f4f4;
+}
+
+.full-width section {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.full-width .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
 }
