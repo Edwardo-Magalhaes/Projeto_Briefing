@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Styles.css">
+<title>Buscar Projeto</title>
+
+</head>
+<body>
+    <div class="header">
+        <img src="../Pagina_Apresentação/Imagens/logo.svg" alt="Logo" style="height: 70px;">
+        <h1>Buscar Projeto</h1>
+        <div>
+            <a href="">Página Inicial</a>
+            <a href="">Meu Portfolio</a>
+        </div>
+    </div>
+
+    <select id="selecionaCategoria">
+        <option value="all">Todas as Categorias</option>
+        <option value="web">Web Design</option>
+        <option value="motion">Motion Design</option>
+        <option value="logotipo">Logotipo</option>
+        <option value="vetorizacao">Vetorização</option>
+        <option value="filme">Filmaker</option>
+    </select>
+
+    <div>
+        <ol>
+            <li><p> oi</p></li>
+            <li><p> oi</p></li>
+            <li><p> oi</p></li>
+        </ol>
+        <ul>
+            <li><p> oi</p></li><li><p> oi</p></li><li><p> oi</p></li>
+        </ul>
+    </div>
+
+    <div class="info-container" id="todosProjetos"></div>
+
+    <div class="modal" id="projetosAceitosModal">
+        <div class="modal-content">
+            <span class="fechar-btn" onclick="fecharProjetosAceitosModal()">Fechar</span>
+            <h2>Projetos Aceitos</h2>
+            <div id="projetosAceitosContainer">
+            </div>
+        </div>
+    </div>
+
+    <script src="exibir_dados_local_storage.js"></script>
+    
+</body>
+</html>
