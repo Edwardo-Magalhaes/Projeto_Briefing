@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
+body{
+    background: linear-gradient(to right, #5c6bc0, #512da8);
+
+}
+section,footer{
+    padding: 54px,0;
+}
