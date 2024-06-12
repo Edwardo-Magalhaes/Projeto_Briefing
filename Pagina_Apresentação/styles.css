@@ -7,9 +7,27 @@
 }
 
 body{
-    background: linear-gradient(to right, #5c6bc0, #512da8);
+    background: linear-gradient(to right, #919acc, #5c6bc0);
 
 }
-section,footer{
-    padding: 54px,0;
+section, footer {
+    padding: 54px 0; /* Aumenta o padding para 100px no topo e embaixo */
+
+} 
+ 
+.logo{
+    width: 300px;
+    height: 100px;
 }
+h1{
+    font-size: 50px;
+}
+p{
+    color: #0a090c;;
+}
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
