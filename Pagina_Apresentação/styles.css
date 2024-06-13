@@ -1,53 +1,93 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     outline: none;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: linear-gradient(to right, hsl(240, 8%, 72%), hsl(240, 8%, 67%)); /* Cores com menos saturação */
+    background-color: #eee2e2; /* Cor de fundo do body */
 }
-section, footer {
-    padding: 54px 0; /* Aumenta o padding para 100px no topo e embaixo */
 
-} 
- 
-.logo{
+section, footer {
+    padding: 54px 0; /* Padding para section e footer */
+}
+
+.logo {
     width: 300px;
     height: 100px;
 }
-h1{
+
+h1 {
     font-size: 50px;
 }
-p{
-    color: #0a090c;;
+
+p {
+    color: #0a090c;
 }
-.container{
+
+.container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 5%;
 }
+.btn{
+    background-color: #8a2be2;
+    color:white;
+    padding: 15px 20px;
+    border-radius:10px;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.1s;
+}
+.btn:hover{
+    background-color: #7000d8;
+}
 
-header{
+header {
+    position: relative;
     background-position: center;
-    background-size:cover;
+    background-size: cover;
     background-attachment: fixed;
 }
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, #808bc9, #4b5cb8);
-    opacity: 0.5; /* Ajuste a opacidade conforme necessário */
-    z-index: 1;
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+} 
+nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none; /* Remove os marcadores da lista */
+}
+nav ul a{
+    color: white;
+    margin: 0 25px;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: block;
+}
+.banner{
+    display: flex;
+    justify-content:center;
+}
+.banner-text{
+    margin: 150px;
+    text-align: center;
+    padding: 0;
+}
+.banner .banner-text h1{
+    font-size: 96px;
+    color: white;
+
+}
+.banner .banner-text p{
+    font-size: 20px;
+    color: #ffffb7;
+    font-weight: lighter;
 }
 
-header .container {
-    position: relative;
-    z-index: 2;
-}
