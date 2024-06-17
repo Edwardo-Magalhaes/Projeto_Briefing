@@ -114,7 +114,107 @@ nav ul a:hover::after {
     margin: 18px 0;
 }
 
-.girl_designer {
-    width: 50px; /* Ajuste conforme necessário */
-    height: auto;
+/*Parte dois*/
+.login .container {
+    display: flex;
+    align-items: center;
 }
+
+.login .mais_tx {
+    width: 50%;
+    padding: 0 40px;
+}
+
+.login .mais_tx h3 {
+    font-size: 53px;
+}
+
+.login .mais_tx p {
+    margin: 5px 0 10px;
+}
+.mais_designer_img {
+    width: 50%;
+}
+
+.mais_designer_img img {
+    width: 80%;
+    margin-left: 100px;
+}
+
+.apresentando h3{
+    text-align: center;
+    font-size: 56px;
+}
+.apresentando p{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ajuste para evitar quebra de linha */
+}
+
+.apresentando .card-item {
+    background-color: #d3e6fd;
+    margin: 15px;
+    border-radius: 14px;
+    text-align: center;
+    width: calc(20% - 30px); /* Ajuste para 5 cards em linha */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Adiciona padding interno */
+    transition: 0.3s; 
+}
+
+.apresentando .card-item img {
+    border-radius: 100%;
+    width: 80px;
+    display: block;
+    margin-bottom: 15px; /* Adiciona margem abaixo da imagem */
+}
+
+.apresentando .card-item .user-name{
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+
+}
+
+.apresentando .card-item .sobre-nos{
+    font-size: 15px;
+    padding: 0 15px;
+    transition: 0.3s;
+}
+
+.apresentando .card-item:hover{
+    background-color: #8a2be2;
+    margin-top: -5px;
+}
+.apresentando .card-item:hover .user-name{
+    color: white;
+}
+.apresentando .card-item:hover .sobre-nos{
+    color: white;
+
+}
+.footer{
+    background-color: #5500ff;
+    text-align: center;
+}
+.footer i{
+    color: #2b7bdd;
+    font-size: 19px;
+    background-color:white;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 10px;
+}
+.footer p{
+    margin-top: 10px;
+    color: white;
+}
+
