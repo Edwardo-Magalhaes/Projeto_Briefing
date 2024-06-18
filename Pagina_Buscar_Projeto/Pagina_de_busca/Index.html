@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Cabeçalho e Filtros</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onclick="closeSidebar(event)">
+    <header>
+        <div class="logo">Logo</div>
+        <input type="text" class="search" placeholder="Pesquisar...">
+        <button class="menu-btn" onclick="toggleSidebar(event)">☰</button>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="#">Criar Projeto</a>
+        <a href="#">Meus Projetos</a>
+        <a href="#">Meu Perfil</a>
+        <a href="#">Sair</a>
+    </div>
+    <div class="filter-bar">
+        <h2>Filtros</h2>
+        <div class="filter-group">
+            <h3>Categoria</h3>
+            <label><input type="checkbox"> Tecnologia</label>
+            <label><input type="checkbox"> Ciência</label>
+            <label><input type="checkbox"> Arte</label>
+        </div>
+        <div class="filter-group">
+            <h3>Preço</h3>
+            <label><input type="checkbox"> Gratuito</label>
+            <label><input type="checkbox"> Pago</label>
+        </div>
+        <div class="filter-group">
+            <h3>Data</h3>
+            <label><input type="checkbox"> Últimos 7 dias</label>
+            <label><input type="checkbox"> Último mês</label>
+            <label><input type="checkbox"> Último ano</label>
+        </div>
+    </div>
+    <div class="content">
+        <div class="grid-container" id="grid-container">
+            <div class="grid-item">
+                <h3>Título 1</h3>
+                <p>Texto breve 1</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 2</h3>
+                <p>Texto breve 2</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 3</h3>
+                <p>Texto breve 3</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 4</h3>
+                <p>Texto breve 4</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 5</h3>
+                <p>Texto breve 5</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 6</h3>
+                <p>Texto breve 6</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 7</h3>
+                <p>Texto breve 7</p>
+            </div>
+            <div class="grid-item">
+                <h3>Título 8</h3>
+                <p>Texto breve 8</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
