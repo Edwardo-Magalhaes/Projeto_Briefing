@@ -90,6 +90,20 @@ nav ul a:not(.btn)::after {
 nav ul a:hover::after {
     width: 100%;
 }
+/*menu mobile*/
+nav .menu-icon{
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    display: none;
+}
+
+nav .close-icon{
+    display: none;
+    font-size: 40px;
+    color: white;
+}
+
 
 .banner {
     display: flex;
@@ -218,3 +232,36 @@ nav ul a:hover::after {
     color: white;
 }
 
+@media(max-width: 830px){
+    .ul{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #2b7bdd;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        clip-path: circle(0 at 100% 0);
+        transition:0.7s;
+    }
+    .ul.open{
+        clip-path: circle(141.2% at 100% 0);
+    }
+
+    .ul a{
+        margin: 10px 0;
+        font-size: 16px;
+    }
+    nav .menu-icon{
+        display: block;
+    }
+    nav .close-icon{
+        display: block;
+        position: absolute;
+        top: 46px;
+        right: 28px; 
+    }
+
+}

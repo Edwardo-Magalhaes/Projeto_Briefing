@@ -16,12 +16,18 @@
                 <a href="index.html">
                     <img class="logo" src="Imagens/Briefing_logo_stickers.png" alt="Logo">
                 </a>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
+                <ul class="ul">
                     <li><a href="Sobre.html">Sobre nós</a></li>
                     <li><a href="serviçoes.html">Serviços</a></li>
                     <li><a class="btn" href="Contato.html">Login</a></li>
+                    <div class="close-icon" onclick="closeMenu()">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </div>
                 </ul>
+                <div class="menu-icon" onclick="openMenu()">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+
             </nav>
             <section class="banner">
                 <div class="banner-text">
@@ -119,5 +125,6 @@
             <p>Desenvolvido pela galera</p>
         </div>
      </footer>
+     <script src="Script.js"></script>
 </body>
 </html>
