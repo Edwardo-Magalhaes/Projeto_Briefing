@@ -1,0 +1,231 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #7000d8b8;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 80px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.container {
+    position: relative;
+    background: linear-gradient(135deg, rgb(179, 208, 253) 0%, rgb(164, 202, 248) 100%);
+    border-radius: 500px; /* Reduzindo a borda */
+    padding: 5px; /* Reduzindo o padding */
+    display: grid;
+    place-content: center;
+    z-index: 0;
+    max-width: 200px; /* Reduzindo a largura máxima */
+    margin: 0 5px; /* Reduzindo a margem */
+    
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    border-radius: 25px; /* Reduzindo a borda */
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    padding: 3px; /* Reduzindo o padding */
+    max-width: 200px; /* Reduzindo a largura máxima */
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+.search-container:hover{
+    max-width: 250px;
+}
+
+.search-container::after, .search-container::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+}
+
+.search-container::before {
+    top: -0.5px; /* Reduzindo a posição */
+    left: -0.5px; /* Reduzindo a posição */
+    background: linear-gradient(0deg, rgb(218, 232, 247) 0%, rgb(255, 255, 255) 100%);
+    z-index: -1;
+}
+
+.search-container::after {
+    bottom: -0.5px; /* Reduzindo a posição */
+    right: -0.5px; /* Reduzindo a posição */
+    background: linear-gradient(0deg, rgb(163, 206, 255) 0%, rgb(211, 232, 255) 100%);
+    box-shadow: rgba(79, 156, 232, 0.7) 2px 2px 3px 0px, rgba(79, 156, 232, 0.7) 3px 3px 10px 0px; /* Reduzindo a sombra */
+    z-index: -2;
+}
+
+.input {
+    padding: 5px; /* Reduzindo o padding */
+    width: 100%;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    border: none;
+    color: #9EBCD9;
+    font-size: 16px; /* Reduzindo o tamanho da fonte */
+    border-radius: 25px; /* Reduzindo a borda */
+}
+
+.input:focus {
+    outline: none;
+    background: linear-gradient(135deg, rgb(239, 247, 255) 0%, rgb(214, 229, 247) 100%);
+}
+
+.search__icon {
+    width: 30px; /* Reduzindo a largura */
+    aspect-ratio: 1;
+    border-left: 1px solid white; /* Reduzindo a borda */
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-radius: 50%;
+    padding-left: 6px; /* Reduzindo o padding */
+    margin-right: 5px; /* Reduzindo a margem */
+    cursor: pointer;
+    position: relative;
+    z-index: 1; /* Ensures the SVG is on top */
+        
+    
+}
+
+.search-button {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 0; /* Ensures the button is behind the SVG */
+    opacity: 0; /* Makes the button invisible */
+}
+
+
+.search__icon:hover {
+    border-left: 2px solid white; /* Reduzindo a borda ao hover */
+}
+
+.search__icon path {
+    fill: white;
+}
+
+.menu-btn {
+    background-color: #bfb7b7;
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    z-index: 2;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.filter-bar {
+    width: 250px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: calc(100% - 80px);
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.filter-bar h2 {
+    margin-top: 0;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h3 {
+    margin-bottom: 10px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.content {
+    margin-left: 270px; /* Espaço para a barra de filtros */
+    margin-top: 100px;
+    padding: 20px;
+    width: calc(100% - 270px); /* Ajuste para a barra de filtros */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    transition: grid-template-columns 0.5s ease;
+}
+
+.grid-item {
+    background-color: #eaeaea;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    width: 100%; /* Ensures the grid item takes the full width of the column */
+    height: 150px; /* Fixed height for consistency */
+    box-sizing: border-box; /* Ensures padding is included in the height/width */
+}
+
+.grid-item:hover {
+    transform: scale(1.05);
+}
+
+.grid-item h3 {
+    margin: 0 0 10px;
+}
+
+.grid-item p {
+    margin: 0;
+    color: #666;
+}
