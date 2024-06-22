@@ -4,6 +4,19 @@ body {
     padding: 0;
     display: flex;
     flex-direction: row;
+
+}
+.background-image {
+    position: absolute;
+    top: 70%;
+    left: 60%;
+    width: 60%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    background: url('../Pagina_de_busca/Imagens/logo_busca_2.png') no-repeat center center;
+    background-size: cover;
+    opacity: 40%; /* Ajuste a opacidade conforme necessário */
+    z-index: -1;
 }
 
 header {
@@ -18,11 +31,12 @@ header {
     top: 0;
     height: 80px;
     box-sizing: border-box;
-    z-index: 1;
+    z-index: 2;
 }
 
 .logo {
     font-size: 1.5em;
+    margin-left: 200px;
 }
 
 .container {
@@ -142,7 +156,7 @@ header {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: #7000d8b8;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 80px;
@@ -159,7 +173,7 @@ header {
 }
 
 .sidebar a:hover {
-    background-color: #575757;
+    background-color: #C256FC;
 }
 
 .filter-bar {
