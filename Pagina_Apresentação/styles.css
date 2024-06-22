@@ -207,7 +207,7 @@ nav .close-icon{
 }
 
 .apresentando .card-item:hover{
-    background-color: #8a2be2;
+    background-color: #944bd8;
     margin-top: -5px;
 }
 .apresentando .card-item:hover .user-name{
@@ -218,11 +218,11 @@ nav .close-icon{
 
 }
 .footer{
-    background-color: #5500ff;
+    background-color: #8a2be2;
     text-align: center;
 }
 .footer i{
-    color: #2b7bdd;
+    color: #8a2be2;
     font-size: 19px;
     background-color:white;
     padding: 10px;
