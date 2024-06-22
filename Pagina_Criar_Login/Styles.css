@@ -58,6 +58,8 @@ body {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out; /* Ajustando a transição */
+    margin-top: 20px; /* Restaurando a margem entre o botão e os inputs */
 }
 
 .container button.hidden {
@@ -85,7 +87,7 @@ body {
     border-radius: 8px;
     width: 100%;
     outline: none;
-    cursor: pointer;
+    transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Ajustando a transição */
 }
 
 .form-container {
@@ -212,4 +214,18 @@ body {
 
 .container.active .toggle-right {
     transform: translateX(200%);
+}
+
+/* Estilo específico para o botão "Inscrever" na seção sign-up */
+.form-container.sign-up button:hover {
+    background-color: #6a4bc8; /* Cor de fundo diferente no hover */
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra */
+}
+
+/* Estilo de foco para inputs e select */
+.container input:focus,
+.container select:focus {
+    border: 2px solid #512da8; /* Cor da borda ao focar */
+    box-shadow: 0 0 5px rgba(81, 45, 168, 0.5); /* Sombra ao focar */
 }
