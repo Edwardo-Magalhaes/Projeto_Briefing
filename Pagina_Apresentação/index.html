@@ -17,9 +17,9 @@
                     <img class="logo" src="Imagens/Briefing_logo_stickers.png" alt="Logo">
                 </a>
                 <ul class="ul">
-                    <li><a href="Sobre.html">Sobre nós</a></li>
-                    <li><a href="serviçoes.html">Serviços</a></li>
-                    <li><a class="btn" href="Contato.html">Login</a></li>
+                    <li><a href="#" onclick="scrollToSobreNos()">Sobre nós</a></li>
+                    <li><a href="#" onclick="scrollToSection()">Serviços</a></li>
+                    <li><a class="btn" href="/Pagina_Criar_Login/Index.html">Login</a></li>
                     <div class="close-icon" onclick="closeMenu()">
                         <i class="fa fa-times-circle" aria-hidden="true"></i>
                     </div>
@@ -27,9 +27,8 @@
                 <div class="menu-icon" onclick="openMenu()">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </div>
-
             </nav>
-            <section class="banner">
+            <section class="banner" id="banner">
                 <div class="banner-text">
                     <h1>Projeto Briefing</h1>
                     <p>tudo sobre designer se tu n sabe onde encontarr qualquer caralho aqui mesmo a solução seu lixo vem trampar.</p>
@@ -39,16 +38,16 @@
         <!-- Container fim -->
     </header>
     <!-- section login inicio -->
-    <section class="login">
+    <section class="login" id="servicos">
         <!-- Container inicio-->
         <div class="container">
-            <div class="mais_tx">
+            <div class="mais_tx" id="sobre-nos">
                 <h3>Soluções de arte e designer</h3>
                 <p>Aqui se encontra os melhores profissionais da área do designer
                     prontos para solucionar seus problemas.
                 </p>
-                <a href="#" class="btn">Sou Cliente</a>
-                <a href="#" class="btn">Sou Designer</a>
+                <a href="/Pagina_Criar_Login/Index.html" class="btn">Sou Cliente</a>
+                <a href="/Pagina_Criar_Login/Index.html" class="btn">Sou Designer</a>
             </div>
             <div class="mais_designer_img">
                 <img src="Imagens/vetor.png" alt="Imagem de designer">
@@ -57,8 +56,8 @@
         <!-- Container final-->
     </section>
     <!-- section login final -->
-     <!--Inicio section apresentando-->
-     <section class="apresentando">
+    <!--Inicio section apresentando-->
+    <section class="apresentando" id="apresentando">
         <div class="container">
             <h3>Nossos desenvolvedores</h3>
             <p>Leia um pouco sobre nossa equipe</p>
@@ -113,8 +112,8 @@
                 <!-- iFim card 5-->
             </Div>
         </div>
-     </section>
-     <footer class="footer">
+    </section>
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="links">
                 <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -124,7 +123,16 @@
             </div>
             <p>Desenvolvido pela galera</p>
         </div>
-     </footer>
-     <script src="Script.js"></script>
+    </footer>
+    <script src="Script.js"></script>
+    <script>
+        function scrollToSobreNos() {
+            document.querySelector('.apresentando').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToSection() {
+            document.querySelector('.login .container').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
