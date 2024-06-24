@@ -10,7 +10,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form id="signupForm" method="POST" action="/cadastrar">
+            <form id="signupForm">
                 <h1>Crie uma conta</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -19,19 +19,19 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>Ou use seu email para registrar</span>
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <select name="tipo" required>
+                <input id="nome" type="text" name="nome" placeholder="Nome" required>
+                <input id="email" type="email" name="email" placeholder="Email" required>
+                <input id="senha" type="password" name="senha" placeholder="Senha" required>
+                <select id="tipo" name="tipo" required>
                     <option value="">Selecione o tipo de usuário</option>
                     <option value="cliente">Cliente</option>
                     <option value="designer">Designer</option>
                 </select>
-                <button type="submit">Inscrever</button>
+                <button type="button" onclick="cadastrar()">Inscrever</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form id="loginForm" method="POST" action="/login">
+            <form id="loginForm">
                 <h1>Entrar</h1>
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -40,10 +40,10 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>Ou use o email e senha</span>
-                <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Senha" required>
+                <input id="loginEmail" type="email" placeholder="Email" required>
+                <input id="loginSenha" type="password" placeholder="Senha" required>
                 <a href="#">Esqueceu sua senha?</a>
-                <button type="submit">Entrar</button>
+                <button type="button" href="/Pagina_Criar_Projeto/Index.html" onclick="entrar()">Entrar</button>
             </form>
         </div>
         <div class="toggle-container">
