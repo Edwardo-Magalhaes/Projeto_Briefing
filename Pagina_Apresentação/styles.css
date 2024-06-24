@@ -10,11 +10,11 @@
 }
 
 body {
-    background-color: #eaeaea;
+    background-color: #eaeaea; /* Cor de fundo do body */
 }
 
 section, footer {
-    padding: 54px 0;
+    padding: 54px 0; /* Padding para section e footer */
 }
 
 .logo {
@@ -44,6 +44,11 @@ p {
     cursor: pointer;
     display: inline-block;
     transition: 0.1s;
+    margin-right: 15px; /* Adiciona espaçamento entre os botões */
+}
+
+.btn:last-child {
+    margin-right: 0; /* Remove o espaçamento no último botão */
 }
 
 .btn:hover {
@@ -67,7 +72,7 @@ nav {
 nav ul {
     display: flex;
     align-items: center;
-    list-style: none;
+    list-style: none; /* Remove os marcadores da lista */
 }
 
 nav ul a {
@@ -78,181 +83,285 @@ nav ul a {
     display: block;
 }
 
-nav ul a:not(.btn) {
-    transition: 0.1s;
+nav ul a:not(.btn)::after {
+    content: "";
+    background-color: #5500ff;
+    height: 3px;
+    width: 0%;
+    display: block;
+    transition: 0.3s;
+    margin: 0 auto;
 }
 
-nav ul a:not(.btn):hover {
-    color: #8a2be2;
+nav ul a:hover::after {
+    width: 100%;
 }
 
+/*menu mobile*/
 nav .menu-icon {
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
     display: none;
 }
 
-.close-icon {
+nav .close-icon {
     display: none;
+    font-size: 40px;
+    color: white;
 }
 
-section.banner {
-    height: calc(100vh - 100px);
+.banner {
     display: flex;
     justify-content: center;
-    align-items: center;
+}
+
+.banner-text {
+    margin: 150px;
     text-align: center;
-    padding: 0 20%;
+    padding: 0;
 }
 
-section.banner .banner-text {
+.banner .banner-text h1 {
+    font-size: 96px;
     color: white;
+    letter-spacing: -2px; /* Ajuste para espaçamento entre letras */
 }
 
-section.banner h1 {
-    font-size: 70px;
-    margin-bottom: 20px;
+.banner .banner-text p {
+    font-size: 20px;
+    color: #ffffb7;
+    font-weight: lighter;
+    margin: 18px 0;
+    letter-spacing: -0.5px; /* Ajuste para espaçamento entre letras */
 }
 
-section.banner p {
-    line-height: 26px;
-}
-
-section.login .mais_tx {
-    width: 45%;
-}
-
-section.login .mais_designer_img img {
-    width: 100%;
-}
-
-section.apresentando .cards {
+/*Parte dois*/
+.login .container {
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os itens sejam quebrados para o próximo nível */
 }
 
-section.apresentando .card-item {
-    flex-basis: calc(20% - 10px);
+.login .mais_tx {
+    width: 50%;
+    padding: 0 40px;
+    flex-grow: 1; /* Permite que o item cresça para ocupar o espaço disponível */
+}
+
+.login .mais_tx h3 {
+    font-size: 53px;
+    letter-spacing: -1px; /* Ajuste para espaçamento entre letras */
+}
+
+.login .mais_tx p {
+    margin: 5px 0 10px;
+    font-size: 14px; /* Tamanho menor para parágrafos */
+}
+
+.mais_designer_img {
+    width: 50%;
+    order: 1; /* Muda a ordem do elemento para aparecer primeiro no layout móvel */
+    flex-grow: 1; /* Permite que o item cresça para ocupar o espaço disponível */
+}
+
+.mais_designer_img img {
+    width: 100%;
+    max-width: 80%; /* Reduz o tamanho máximo da imagem para se ajustar ao conteúdo */
+    margin-right: 20px; /* Adiciona espaçamento entre as imagens */
+}
+
+.apresentando h3 {
+    text-align: center;
+    font-size: 56px;
+    letter-spacing: -1px; /* Ajuste para espaçamento entre letras */
+}
+
+.apresentando p {
     margin-bottom: 20px;
     text-align: center;
+    font-size: 14px; /* Tamanho menor para parágrafos */
 }
 
-section.apresentando .card-item img {
-    width: 100%;
-    height: auto;
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* Ajuste para evitar quebra de linha */
 }
 
-footer {
-    background-color: #1e1c1f;
+.apresentando .card-item {
+    background-color: #d3e6fd;
+    margin: 15px;
+    border-radius: 14px;
+    text-align: center;
+    width: calc(20% - 30px); /* Ajuste para 5 cards em linha */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Adiciona padding interno */
+    transition: 0.3s;
+}
+
+.apresentando .card-item img {
+    border-radius: 100%;
+    width: 80px;
+    display: block;
+    margin-bottom: 15px; /* Adiciona margem abaixo da imagem */
+}
+
+.apresentando .card-item .user-name {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.apresentando .card-item .sobre-nos {
+    font-size: 15px;
+    padding: 0 15px;
+    transition: 0.3s;
+}
+
+.apresentando .card-item:hover {
+    background-color: #944bd8;
+    margin-top: -5px;
+}
+
+.apresentando .card-item:hover .user-name {
     color: white;
+}
+
+.apresentando .card-item:hover .sobre-nos {
+    color: white;
+}
+
+.footer {
+    background-color: #8a2be2;
     text-align: center;
 }
 
-footer .links a {
+.footer i {
+    color: #8a2be2;
+    font-size: 19px;
+    background-color: white;
+    padding: 10px;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.footer p {
+    margin-top: 10px;
     color: white;
-    margin: 0 10px;
 }
 
-footer p {
-    margin-top: 20px;
-}
-
-/* Media queries para responsividade */
-@media screen and (max-width: 1400px) {
-    .container {
-        padding: 0 5%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    nav ul {
-        position: absolute;
-        right: 0;
+@media (max-width: 830px) {
+    .ul {
+        position: fixed;
         top: 0;
-        height: 100vh;
-        background-color: #1e1c1f;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 0;
-        transition: 0.5s;
-        overflow: hidden;
-    }
-
-    nav ul.open {
+        left: 0;
+        background: #2b7bdd;
         width: 100%;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        clip-path: circle(0 at 100% 0);
+        transition: 0.7s;
     }
 
-    nav ul a {
-        font-size: 20px;
+    .ul.open {
+        clip-path: circle(141.2% at 100% 0);
+    }
+
+    .ul a {
         margin: 10px 0;
-        opacity: 0;
-        transition: 0.5s;
-    }
-
-    nav ul.open a {
-        opacity: 1;
+        font-size: 16px;
     }
 
     nav .menu-icon {
         display: block;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
     }
 
-    .close-icon {
-        position: absolute;
-        right: 20px;
-        top: 20px;
+    nav .close-icon {
         display: block;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
+        position: absolute;
+        top: 46px;
+        right: 28px;
+    }
+    .logo {
+        width: 250px;
+        height: 90px;
     }
 
-    section.banner {
-        padding: 0 10%;
+    .banner-text {
+        margin: 20px;
     }
 
-    section.banner h1 {
-        font-size: 40px;
+    .banner .banner-text h1 {
+        font-size: 36px;
     }
 
-    section.banner p {
-        font-size: 14px;
+    .banner .banner-text p {
+        font-size: 12px;
     }
 
-    section.login .mais_tx, 
-    section.login .mais_designer_img {
+    .login .container {
+        flex-direction: column;
+    }
+
+    .login .mais_tx,
+    .mais_designer_img {
         width: 100%;
+        padding: 20px;
         text-align: center;
     }
 
-    section.login .mais_designer_img img {
-        margin-top: 20px;
+    .login .mais_tx h3 {
+        font-size: 36px; /* Tamanho menor para h3 */
     }
 
-    section.apresentando .card-item {
-        flex-basis: 100%;
-        margin-bottom: 20px;
+    .login .mais_tx p {
+        font-size: 12px; /* Tamanho menor para parágrafos */
+    }
+
+    .mais_designer_img img {
+        margin-left: 0;
+        width: 60%;
+        margin-left: 40px;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .apresentando .card-item {
+        width: calc(50% - 30px); /* Ajuste para 2 cards por linha no mobile */
+    }
+
+    .apresentando .card-item img {
+        width: 60px;
     }
 }
 
-@media screen and (max-width: 480px) {
-    nav ul a {
-        font-size: 18px;
+@media (max-width: 480px) {
+    .banner .banner-text h1 {
+        font-size: 48px;
     }
 
-    section.banner h1 {
-        font-size: 30px;
-    }
-
-    section.banner p {
-        font-size: 12px;
+    .banner .banner-text p {
+        font-size: 14px;
     }
 
     .logo {
         width: 200px;
         height: 80px;
+    }
+
+    .apresentando .card-item {
+        width: 100%;
+    }
+    .apresentando .container h3 {
+        font-size: 48px; /* Define o tamanho do h3 para 48px */
     }
 }
