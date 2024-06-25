@@ -10,11 +10,11 @@
 }
 
 body {
-    background-color: #eaeaea; /* Cor de fundo do body */
+    background-color: #eaeaea;
 }
 
 section, footer {
-    padding: 54px 0; /* Padding para section e footer */
+    padding: 54px 0;
 }
 
 .logo {
@@ -44,11 +44,11 @@ p {
     cursor: pointer;
     display: inline-block;
     transition: 0.1s;
-    margin-right: 15px; /* Adiciona espaçamento entre os botões */
+    margin-right: 15px;
 }
 
 .btn:last-child {
-    margin-right: 0; /* Remove o espaçamento no último botão */
+    margin-right: 0;
 }
 
 .btn:hover {
@@ -72,7 +72,7 @@ nav {
 nav ul {
     display: flex;
     align-items: center;
-    list-style: none; /* Remove os marcadores da lista */
+    list-style: none;
 }
 
 nav ul a {
@@ -97,7 +97,6 @@ nav ul a:hover::after {
     width: 100%;
 }
 
-/*menu mobile*/
 nav .menu-icon {
     cursor: pointer;
     font-size: 25px;
@@ -125,7 +124,7 @@ nav .close-icon {
 .banner .banner-text h1 {
     font-size: 96px;
     color: white;
-    letter-spacing: -2px; /* Ajuste para espaçamento entre letras */
+    letter-spacing: -2px;
 }
 
 .banner .banner-text p {
@@ -133,60 +132,60 @@ nav .close-icon {
     color: #ffffb7;
     font-weight: lighter;
     margin: 18px 0;
-    letter-spacing: -0.5px; /* Ajuste para espaçamento entre letras */
+    letter-spacing: -0.5px;
 }
 
 /*Parte dois*/
 .login .container {
     display: flex;
     align-items: center;
-    flex-wrap: wrap; /* Permite que os itens sejam quebrados para o próximo nível */
+    flex-wrap: wrap;
 }
 
 .login .mais_tx {
     width: 50%;
     padding: 0 40px;
-    flex-grow: 1; /* Permite que o item cresça para ocupar o espaço disponível */
+    flex-grow: 1;
 }
 
 .login .mais_tx h3 {
     font-size: 53px;
-    letter-spacing: -1px; /* Ajuste para espaçamento entre letras */
+    letter-spacing: -1px;
 }
 
 .login .mais_tx p {
     margin: 5px 0 10px;
-    font-size: 14px; /* Tamanho menor para parágrafos */
+    font-size: 14px;
 }
 
 .mais_designer_img {
     width: 50%;
-    order: 1; /* Muda a ordem do elemento para aparecer primeiro no layout móvel */
-    flex-grow: 1; /* Permite que o item cresça para ocupar o espaço disponível */
+    order: 1;
+    flex-grow: 1;
 }
 
 .mais_designer_img img {
     width: 100%;
-    max-width: 80%; /* Reduz o tamanho máximo da imagem para se ajustar ao conteúdo */
-    margin-right: 20px; /* Adiciona espaçamento entre as imagens */
+    max-width: 80%;
+    margin-right: 20px;
 }
 
 .apresentando h3 {
     text-align: center;
     font-size: 56px;
-    letter-spacing: -1px; /* Ajuste para espaçamento entre letras */
+    letter-spacing: -1px;
 }
 
 .apresentando p {
     margin-bottom: 20px;
     text-align: center;
-    font-size: 14px; /* Tamanho menor para parágrafos */
+    font-size: 14px;
 }
 
 .cards {
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* Ajuste para evitar quebra de linha */
+    flex-wrap: nowrap;
 }
 
 .apresentando .card-item {
@@ -194,12 +193,12 @@ nav .close-icon {
     margin: 15px;
     border-radius: 14px;
     text-align: center;
-    width: calc(20% - 30px); /* Ajuste para 5 cards em linha */
+    width: calc(20% - 30px);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px; /* Adiciona padding interno */
+    padding: 20px;
     transition: 0.3s;
 }
 
@@ -207,7 +206,7 @@ nav .close-icon {
     border-radius: 100%;
     width: 80px;
     display: block;
-    margin-bottom: 15px; /* Adiciona margem abaixo da imagem */
+    margin-bottom: 15px;
 }
 
 .apresentando .card-item .user-name {
@@ -318,11 +317,11 @@ nav .close-icon {
     }
 
     .login .mais_tx h3 {
-        font-size: 36px; /* Tamanho menor para h3 */
+        font-size: 36px;
     }
 
     .login .mais_tx p {
-        font-size: 12px; /* Tamanho menor para parágrafos */
+        font-size: 12px;
     }
 
     .mais_designer_img img {
@@ -336,7 +335,7 @@ nav .close-icon {
     }
 
     .apresentando .card-item {
-        width: calc(50% - 30px); /* Ajuste para 2 cards por linha no mobile */
+        width: calc(50% - 30px);
     }
 
     .apresentando .card-item img {
@@ -362,6 +361,6 @@ nav .close-icon {
         width: 100%;
     }
     .apresentando .container h3 {
-        font-size: 48px; /* Define o tamanho do h3 para 48px */
+        font-size: 48px;
     }
 }
