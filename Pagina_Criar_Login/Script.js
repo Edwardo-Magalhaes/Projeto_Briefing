@@ -1,13 +1,14 @@
 window.onload = function() {
-    // Seleciona os elementos necessários
     const container = document.getElementById('container');
     const registerBtn = document.getElementById('register');
     const loginBtn = document.getElementById('login');
 
-    // Adiciona a classe "active" ao container para mostrar a parte de registro
-    container.classList.add("active");
-
-    // Event listener para alternar entre os formulários de login e registro
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('login')) {
+        container.classList.remove("active");
+    } else {
+        container.classList.add("active");
+    }
     registerBtn.addEventListener('click', () => {
         container.classList.add("active");
     });
@@ -47,9 +48,7 @@ function entrar() {
     const user = users.find(user => user.email === email && user.senha === senha);
 
     if (user) {
-        alert('Login bem-sucedido!');
-        // Redireciona para outra página ou realiza alguma ação
-        // window.location.href = 'outra_pagina.html';
+        window.location.href = '/Pagina_Criar_Projeto/Index.html?login=true';
     } else {
         alert('Email ou senha incorretos!');
     }
