@@ -3,7 +3,18 @@
     "development"
   ],
   "hints": {
-    "axe/forms": "off",
-    "axe/name-role-value": "off"
+    "no-inline-styles": "off",
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ]
   }
 }
