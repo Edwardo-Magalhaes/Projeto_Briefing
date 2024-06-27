@@ -1,0 +1,16 @@
+{
+  "name": "javascript_poste",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js",
+    "fulltable" : "node fullTable.js"
+
+  },
+  "author": "elysson",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "pg": "^8.12.0"
+  }
+}
