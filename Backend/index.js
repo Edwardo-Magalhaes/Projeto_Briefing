@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const { Pool } = require('pg');
+const bcrypt = require('bcrypt');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,8 +12,8 @@ const PORT = process.env.PORT || 3000;
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'projeto_briefing',
-    password: '316710',
+    database: 'postgres',
+    password: 'postgres',
     port: 5432,
 });
 
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 // Endpoint para a página first_page
 app.get('/first_page', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
+    console.log("ok")
 });
 
 // Endpoint para cadastrar usuário
@@ -45,12 +47,15 @@ app.post('/cadastrar', async (req, res) => {
     const { nome, email, senha, tipo } = req.body;
 
     try {
+        // Gerar hash da senha
+        const hashedPassword = await bcrypt.hash(senha, 10);
+
         const query = `
             INSERT INTO usuarios (nome, email, senha, tipo_usuario_id)
             VALUES ($1, $2, $3, $4)
             RETURNING id, nome, email, tipo_usuario_id;
         `;
-        const values = [nome, email, senha, tipo];
+        const values = [nome, email, hashedPassword, tipo];
 
         const result = await pool.query(query, values);
         res.json(result.rows[0]);
@@ -66,21 +71,34 @@ app.post('/login', async (req, res) => {
 
     try {
         const query = `
-            SELECT id, nome, email, tipo_usuario_id
+            SELECT id, nome, email, senha, tipo_usuario_id
             FROM usuarios
-            WHERE email = $1 AND senha = $2;
+            WHERE email = $1;
         `;
-        const values = [email, senha];
+        const values = [email];
 
         const result = await pool.query(query, values);
+
         if (result.rows.length > 0) {
-            // Salvando dados do usuário na sessão
-            req.session.userId = result.rows[0].id;
-            // Redirecionando para a página inicial após login
-            res.redirect('/'); // Redireciona para a página inicial
+            // Verifica se a senha está correta (considerando que está usando bcrypt)
+            const user = result.rows[0];
+            const isPasswordValid = await bcrypt.compare(senha, user.senha);
+
+            if (isPasswordValid) {
+                // Salvando dados do usuário na sessão
+                req.session.userId = user.id;
+                // Redirecionando para a página inicial após login
+                res.redirect('/'); // Redireciona para a página inicial
+                console.log('senha ok');
+            } else {
+                // Caso a senha seja inválida
+                res.status(401).json({ error: 'Credenciais inválidas.' });
+                console.log('strong password')
+            }
         } else {
-            // Caso as credenciais sejam inválidas
+            // Caso o email não seja encontrado
             res.status(401).json({ error: 'Credenciais inválidas.' });
+            console.log('email nao encontrado')
         }
     } catch (error) {
         console.error('Erro ao fazer login:', error);
