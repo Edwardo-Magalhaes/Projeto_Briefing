@@ -4,13 +4,13 @@
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
-    "fulltable" : "node fullTable.js"
-
+    "fulltable": "node fullTable.js"
   },
   "author": "elysson",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "express": "^4.19.2",
     "pg": "^8.12.0"
   }
 }

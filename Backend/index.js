@@ -10,8 +10,13 @@ const PORT = process.env.PORT || 3000;
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
+<<<<<<< Updated upstream
     database: 'prog',
     password: '316710',
+=======
+    database: 'postgres',
+    password: 'postgres',
+>>>>>>> Stashed changes
     port: 5432,
 });
 
