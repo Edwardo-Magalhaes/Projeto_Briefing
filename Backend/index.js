@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 const { Pool } = require('pg');
 
 const app = express();
@@ -8,9 +9,9 @@ const PORT = process.env.PORT || 3000;
 
 // Configuração do banco de dados PostgreSQL
 const pool = new Pool({
-    user: 'postgres',
+    user: 'postegres',
     host: 'localhost',
-    database: 'prog',
+    database: 'projeto_briefing',
     password: '316710',
     port: 5432,
 });
@@ -19,20 +20,27 @@ const pool = new Pool({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Configuração de sessão
+app.use(session({
+    secret: 'chave-secreta-aqui',
+    resave: false,
+    saveUninitialized: true
+}));
+
 // Servir arquivos estáticos da pasta public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Endpoint para a página inicial (create_page.html)
+// Endpoint para a página inicial
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'first_page.html'));
 });
 
-// Endpoint para a página first_page (first_page.html)
+// Endpoint para a página first_page
 app.get('/first_page', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
 });
 
-// Endpoint para a página Pagina_busca (seach_page.html)
+// Endpoint para a página Pagina_busca
 app.get('/Pagina_busca', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'seach_page.html'));
 });
@@ -71,7 +79,10 @@ app.post('/login', async (req, res) => {
 
         const result = await pool.query(query, values);
         if (result.rows.length > 0) {
-            res.json(result.rows[0]);
+            // Salvando dados do usuário na sessão
+            req.session.userId = result.rows[0].id;
+            // Redirecionando para outra página após login
+            res.redirect('/seach_page.html'); // Redireciona para seach_page.html
         } else {
             res.status(404).json({ error: 'Credenciais inválidas.' });
         }
