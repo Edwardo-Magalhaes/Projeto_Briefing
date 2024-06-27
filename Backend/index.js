@@ -22,19 +22,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Servir arquivos estáticos da pasta public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Endpoint para a página inicial (create_page/Index.html)
+// Endpoint para a página inicial (create_page.html)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'create_page', 'Index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'create_page.html'));
 });
 
-// Endpoint para a página first_page (first_page/Index.html)
+// Endpoint para a página first_page (first_page.html)
 app.get('/first_page', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'first_page', 'Index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'first_page.html'));
 });
 
-// Endpoint para a página Pagina_busca (Pagina_busca/index.html)
+// Endpoint para a página Pagina_busca (seach_page.html)
 app.get('/Pagina_busca', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'Pagina_busca', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'seach_page.html'));
 });
 
 // Endpoint para cadastrar usuário
