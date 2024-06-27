@@ -42,6 +42,11 @@ app.get('/first_page', (req, res) => {
     console.log("ok")
 });
 
+app.get('/login_page', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'seach_page.html'));
+    console.log("ok")
+});
+
 // Endpoint para cadastrar usuário
 app.post('/cadastrar', async (req, res) => {
     const { nome, email, senha, tipo } = req.body;
@@ -49,6 +54,7 @@ app.post('/cadastrar', async (req, res) => {
     try {
         // Gerar hash da senha
         const hashedPassword = await bcrypt.hash(senha, 10);
+        console.log('Senha hashada:', hashedPassword); // Adicionar log para verificar o hash da senha
 
         const query = `
             INSERT INTO usuarios (nome, email, senha, tipo_usuario_id)
@@ -68,6 +74,7 @@ app.post('/cadastrar', async (req, res) => {
 // Endpoint para fazer login
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body;
+    console.log('Tentativa de login com email:', email); // Adicionar log para verificar o email
 
     try {
         const query = `
@@ -80,25 +87,25 @@ app.post('/login', async (req, res) => {
         const result = await pool.query(query, values);
 
         if (result.rows.length > 0) {
-            // Verifica se a senha está correta (considerando que está usando bcrypt)
             const user = result.rows[0];
+            console.log('Usuário encontrado:', user); // Adicionar log para verificar o usuário encontrado
+
             const isPasswordValid = await bcrypt.compare(senha, user.senha);
+            console.log('Validade da senha:', isPasswordValid); // Adicionar log para verificar a validade da senha
 
             if (isPasswordValid) {
-                // Salvando dados do usuário na sessão
                 req.session.userId = user.id;
-                // Redirecionando para a página inicial após login
-                res.redirect('/'); // Redireciona para a página inicial
                 console.log('senha ok');
+                // Em vez de redirecionar, retornamos uma resposta JSON com sucesso
+                res.status(200).json({ message: 'Login realizado com sucesso!' });
             } else {
-                // Caso a senha seja inválida
                 res.status(401).json({ error: 'Credenciais inválidas.' });
-                console.log('strong password')
+                console.log('senha incorreta');
             }
+
         } else {
-            // Caso o email não seja encontrado
             res.status(401).json({ error: 'Credenciais inválidas.' });
-            console.log('email nao encontrado')
+            console.log('email nao encontrado');
         }
     } catch (error) {
         console.error('Erro ao fazer login:', error);

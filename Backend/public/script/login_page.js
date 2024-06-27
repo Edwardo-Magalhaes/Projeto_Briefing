@@ -57,6 +57,9 @@ async function entrar() {
     const email = document.getElementById('loginEmail').value;
     const senha = document.getElementById('loginSenha').value;
 
+    console.log('Tentativa de login com email:', email); // Log do email
+    console.log('Tentativa de login com senha:', senha); // Log da senha
+
     try {
         const response = await fetch('/login', {
             method: 'POST',
@@ -67,17 +70,21 @@ async function entrar() {
         });
 
         if (response.ok) {
+            // Se a resposta for OK, vamos verificar o que está sendo retornado
             const data = await response.json();
             console.log('Resposta do servidor:', data);
-            alert('Login realizado com sucesso!');
-            window.location.href = '/Pagina_busca'; // Redireciona para a página de busca após o login
+            alert(data.message); // Exibir mensagem de sucesso
+            window.location.href = '/seach_page.html'; // Redireciona para a página de busca após o login
         } else {
+            // Se a resposta não for OK, vamos verificar o status e a mensagem de erro
             const errorData = await response.json();
             console.error('Erro ao conectar:', errorData.error);
-            alert('Erro ao conectar: Email ou senha estão incorretos.');
+            alert('Erro ao conectar: ' + errorData.error);
         }
     } catch (error) {
+        // Captura e loga qualquer outro erro que possa ocorrer
         console.error('Erro ao fazer login:', error);
         alert('Ocorreu um erro ao fazer login.');
     }
 }
+
