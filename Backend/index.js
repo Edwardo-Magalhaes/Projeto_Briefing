@@ -8,10 +8,10 @@ const PORT = process.env.PORT || 3000;
 
 // Configuração do banco de dados PostgreSQL
 const pool = new Pool({
-    user: 'seu_usuario',
+    user: 'postgres',
     host: 'localhost',
-    database: 'seu_banco_de_dados',
-    password: 'sua_senha',
+    database: 'projeto_briefing',
+    password: '316710',
     port: 5432,
 });
 
@@ -22,17 +22,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Servir arquivos estáticos da pasta public
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Endpoint para a página inicial
+// Endpoint para a página inicial (create_page/Index.html)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'create_page', 'Index.html'));
 });
 
-// Endpoint para a página first_page
+// Endpoint para a página first_page (first_page/Index.html)
 app.get('/first_page', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'first_page', 'Index.html'));
 });
 
-// Endpoint para a página Pagina_busca
+// Endpoint para a página Pagina_busca (Pagina_busca/index.html)
 app.get('/Pagina_busca', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'Pagina_busca', 'index.html'));
 });
