@@ -11,7 +11,7 @@ const client = new Client({
     host: 'localhost',
     database: 'projeto_briefing',  // Substitua 'seu_banco_de_dados' pelo nome do seu banco de dados
     password: '316710',  // Substitua 'sua_senha' pela senha correta
-    port: 5432,  // Substitua se a porta for diferente
+    port: 3542,  // Substitua se a porta for diferente
 });
 
 client.connect()
