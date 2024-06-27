@@ -35,15 +35,15 @@ async function cadastrar() {
             body: JSON.stringify({ nome, email, senha, tipo }),
         });
 
-        const data = await response.json();
-        console.log('Resposta do servidor:', data);
-
-        // Verifica se a resposta indica sucesso
         if (response.ok) {
+            const data = await response.json();
+            console.log('Resposta do servidor:', data);
             alert('Usuário cadastrado com sucesso!');
             const container = document.getElementById('container');
             container.classList.remove("active"); // Ativa a parte de login após o cadastro
         } else {
+            const errorData = await response.json();
+            console.error('Erro ao cadastrar usuário:', errorData.error);
             alert('Ocorreu um erro ao cadastrar o usuário.');
         }
     } catch (error) {
@@ -66,9 +66,16 @@ async function entrar() {
             body: JSON.stringify({ email, senha }),
         });
 
-        const data = await response.json();
-        console.log('Resposta do servidor:', data);
-        alert('Login realizado com sucesso!');
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Resposta do servidor:', data);
+            alert('Login realizado com sucesso!');
+            window.location.href = '/Pagina_busca'; // Redireciona para a página de busca após o login
+        } else {
+            const errorData = await response.json();
+            console.error('Erro ao conectar:', errorData.error);
+            alert('Erro ao conectar: Email ou senha estão incorretos.');
+        }
     } catch (error) {
         console.error('Erro ao fazer login:', error);
         alert('Ocorreu um erro ao fazer login.');

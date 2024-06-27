@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // Configuração do banco de dados PostgreSQL
 const pool = new Pool({
-    user: 'postegres',
+    user: 'postgres',
     host: 'localhost',
     database: 'projeto_briefing',
     password: '316710',
@@ -38,11 +38,6 @@ app.get('/', (req, res) => {
 // Endpoint para a página first_page
 app.get('/first_page', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
-});
-
-// Endpoint para a página Pagina_busca
-app.get('/Pagina_busca', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'seach_page.html'));
 });
 
 // Endpoint para cadastrar usuário
@@ -81,10 +76,11 @@ app.post('/login', async (req, res) => {
         if (result.rows.length > 0) {
             // Salvando dados do usuário na sessão
             req.session.userId = result.rows[0].id;
-            // Redirecionando para outra página após login
-            res.redirect('/seach_page.html'); // Redireciona para seach_page.html
+            // Redirecionando para a página inicial após login
+            res.redirect('/'); // Redireciona para a página inicial
         } else {
-            res.status(404).json({ error: 'Credenciais inválidas.' });
+            // Caso as credenciais sejam inválidas
+            res.status(401).json({ error: 'Credenciais inválidas.' });
         }
     } catch (error) {
         console.error('Erro ao fazer login:', error);
