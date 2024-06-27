@@ -37,7 +37,15 @@ async function cadastrar() {
 
         const data = await response.json();
         console.log('Resposta do servidor:', data);
-        alert('Usuário cadastrado com sucesso!');
+
+        // Verifica se a resposta indica sucesso
+        if (response.ok) {
+            alert('Usuário cadastrado com sucesso!');
+            const container = document.getElementById('container');
+            container.classList.remove("active"); // Ativa a parte de login após o cadastro
+        } else {
+            alert('Ocorreu um erro ao cadastrar o usuário.');
+        }
     } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);
         alert('Ocorreu um erro ao cadastrar o usuário.');
