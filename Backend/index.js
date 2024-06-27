@@ -24,12 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint para a página inicial (create_page.html)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'create_page.html'));
+    res.sendFile(path.join(__dirname, 'public', 'first_page.html'));
 });
 
 // Endpoint para a página first_page (first_page.html)
 app.get('/first_page', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'first_page.html'));
+    res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
 });
 
 // Endpoint para a página Pagina_busca (seach_page.html)
