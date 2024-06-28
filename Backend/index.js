@@ -36,15 +36,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'first_page.html'));
 });
 
-// Endpoint para a página first_page
-app.get('/first_page', (req, res) => {
+// Endpoint para a página de login
+app.get('/login_page', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
-    console.log("ok")
 });
 
-app.get('/login_page', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'seach_page.html'));
-    console.log("ok")
+// Endpoint para a página de busca (search_page)
+app.get('/search_page', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'search_page.html'));
 });
 
 // Endpoint para cadastrar usuário
@@ -95,21 +94,52 @@ app.post('/login', async (req, res) => {
 
             if (isPasswordValid) {
                 req.session.userId = user.id;
-                console.log('senha ok');
+                console.log('Senha ok');
                 // Em vez de redirecionar, retornamos uma resposta JSON com sucesso
                 res.status(200).json({ message: 'Login realizado com sucesso!' });
             } else {
                 res.status(401).json({ error: 'Credenciais inválidas.' });
-                console.log('senha incorreta');
+                console.log('Senha incorreta');
             }
-
         } else {
             res.status(401).json({ error: 'Credenciais inválidas.' });
-            console.log('email nao encontrado');
+            console.log('Email não encontrado');
         }
     } catch (error) {
         console.error('Erro ao fazer login:', error);
         res.status(500).json({ error: 'Erro ao fazer login.' });
+    }
+});
+
+// Endpoint para enviar solicitação de projeto
+app.post('/enviar-solicitacao', async (req, res) => {
+    const { titulo, descricao, categoria, prazo, orcamento, nome_cliente, email_cliente } = req.body;
+
+    try {
+        const query = `
+            INSERT INTO solicitacoes_projetos (titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            RETURNING id, titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente;
+        `;
+        const values = [titulo, descricao, categoria, prazo, orcamento, nome_cliente, email_cliente];
+
+        const result = await pool.query(query, values);
+        res.json(result.rows[0]);
+    } catch (error) {
+        console.error('Erro ao enviar solicitação de projeto:', error);
+        res.status(500).json({ error: 'Erro ao enviar solicitação de projeto.' });
+    }
+});
+
+// Endpoint para buscar todos os projetos
+app.get('/projetos', async (req, res) => {
+    try {
+        const query = 'SELECT titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente FROM projetos;';
+        const result = await pool.query(query);
+        res.json(result.rows);
+    } catch (error) {
+        console.error('Erro ao buscar projetos:', error);
+        res.status(500).json({ error: 'Erro ao buscar projetos.' });
     }
 });
 

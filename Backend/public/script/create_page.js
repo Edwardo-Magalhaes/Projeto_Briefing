@@ -9,6 +9,7 @@ document.getElementById('project-request-form').addEventListener('submit', funct
     const projectBudget = document.getElementById('project-budget').value;
     const clientName = document.getElementById('client-name').value;
     const clientEmail = document.getElementById('client-email').value;
+    const clientTelefone = document.getElementById('client-telefone').value;
 
     // Exemplo de validação adicional
     if (projectBudget <= 0) {
@@ -16,7 +17,7 @@ document.getElementById('project-request-form').addEventListener('submit', funct
         return;
     }
 
-    // Simulação do envio dos dados do formulário
+    // Dados a serem enviados para o servidor
     const formData = {
         projectTitle,
         projectDescription,
@@ -24,13 +25,27 @@ document.getElementById('project-request-form').addEventListener('submit', funct
         projectDeadline,
         projectBudget,
         clientName,
-        clientEmail
+        clientEmail,
+        clientTelefone
     };
 
-    console.log('Formulário enviado com os seguintes dados:', formData);
-
-    // Exibir mensagem de sucesso
-    showMessage('Solicitação de projeto enviada com sucesso!', 'success');
+    // Enviar os dados do formulário para o servidor
+    fetch('/enviar-solicitacao', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Resposta do servidor:', data);
+        showMessage(data.message, 'success');
+    })
+    .catch(error => {
+        console.error('Erro ao enviar solicitação de projeto:', error);
+        showMessage('Erro ao enviar solicitação de projeto. Por favor, tente novamente mais tarde.', 'error');
+    });
 
     // Limpar o formulário
     document.getElementById('project-request-form').reset();

@@ -16,10 +16,9 @@
             </div>
             <nav>
                 <ul id="menu">
-                    <li><a href="/Pagina_Apresentação/index.html">Home</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#contact">Contato</a></li>
+                    <li><a href="first_page.html">Home</a></li>
+                    <li><a href="seach_page.html">Buscar</a></li>
+                    <li><a href="#contact">Perfil</a></li>
                 </ul>
             </nav>
             <button class="menu-toggle" id="menu-toggle">&#9776;</button>
@@ -27,7 +26,7 @@
     </header>
     <div class="container">
         <h1>Solicitar Novo Projeto de Design</h1>
-        <form id="project-request-form">
+        <form id="project-request-form" action="/enviar-solicitacao" method="POST">
             <div class="form-group">
                 <label for="project-title">Título do Projeto:</label>
                 <input type="text" id="project-title" name="project-title" required>
