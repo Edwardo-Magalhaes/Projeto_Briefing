@@ -27,7 +27,7 @@ function closeSidebar(event) {
 // Função para carregar e exibir projetos
 async function carregarProjetos() {
     try {
-        const response = await fetch('/projetos');
+        const response = await fetch('/solicitacoes_projetos'); // Corrigido para acessar o endpoint correto
         const projetos = await response.json();
         
         const gridContainer = document.getElementById("grid-container");

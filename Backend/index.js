@@ -53,7 +53,6 @@ app.post('/cadastrar', async (req, res) => {
     try {
         // Gerar hash da senha
         const hashedPassword = await bcrypt.hash(senha, 10);
-        console.log('Senha hashada:', hashedPassword); // Adicionar log para verificar o hash da senha
 
         const query = `
             INSERT INTO usuarios (nome, email, senha, tipo_usuario_id)
@@ -73,7 +72,6 @@ app.post('/cadastrar', async (req, res) => {
 // Endpoint para fazer login
 app.post('/login', async (req, res) => {
     const { email, senha } = req.body;
-    console.log('Tentativa de login com email:', email); // Adicionar log para verificar o email
 
     try {
         const query = `
@@ -87,23 +85,17 @@ app.post('/login', async (req, res) => {
 
         if (result.rows.length > 0) {
             const user = result.rows[0];
-            console.log('Usuário encontrado:', user); // Adicionar log para verificar o usuário encontrado
 
             const isPasswordValid = await bcrypt.compare(senha, user.senha);
-            console.log('Validade da senha:', isPasswordValid); // Adicionar log para verificar a validade da senha
 
             if (isPasswordValid) {
                 req.session.userId = user.id;
-                console.log('Senha ok');
-                // Em vez de redirecionar, retornamos uma resposta JSON com sucesso
                 res.status(200).json({ message: 'Login realizado com sucesso!' });
             } else {
                 res.status(401).json({ error: 'Credenciais inválidas.' });
-                console.log('Senha incorreta');
             }
         } else {
             res.status(401).json({ error: 'Credenciais inválidas.' });
-            console.log('Email não encontrado');
         }
     } catch (error) {
         console.error('Erro ao fazer login:', error);
@@ -113,15 +105,19 @@ app.post('/login', async (req, res) => {
 
 // Endpoint para enviar solicitação de projeto
 app.post('/enviar-solicitacao', async (req, res) => {
-    const { titulo, descricao, categoria, prazo, orcamento, nome_cliente, email_cliente } = req.body;
+    const { titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente, telefone_cliente } = req.body;
+
+    if (!titulo || !descricao || !categoria || !prazo_entrega || !orcamento_estimado || !nome_cliente || !email_cliente) {
+        return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
+    }
 
     try {
         const query = `
-            INSERT INTO solicitacoes_projetos (titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
-            RETURNING id, titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente;
+            INSERT INTO solicitacoes_projetos (titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente, telefone_cliente)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            RETURNING id, titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente, telefone_cliente;
         `;
-        const values = [titulo, descricao, categoria, prazo, orcamento, nome_cliente, email_cliente];
+        const values = [titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente, telefone_cliente];
 
         const result = await pool.query(query, values);
         res.json(result.rows[0]);
@@ -130,11 +126,13 @@ app.post('/enviar-solicitacao', async (req, res) => {
         res.status(500).json({ error: 'Erro ao enviar solicitação de projeto.' });
     }
 });
-
-// Endpoint para buscar todos os projetos
-app.get('/projetos', async (req, res) => {
+// Endpoint para buscar projetos
+app.get('/solicitacoes_projetos', async (req, res) => {
     try {
-        const query = 'SELECT titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente FROM projetos;';
+        const query = `
+            SELECT id, titulo, descricao, categoria, prazo_entrega, orcamento_estimado, nome_cliente, email_cliente, telefone_cliente
+            FROM solicitacoes_projetos;
+        `;
         const result = await pool.query(query);
         res.json(result.rows);
     } catch (error) {
