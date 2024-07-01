@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIEFING - Meu Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onclick="closeSidebar(event)">
+    <div class="background-image"></div>
+    <header>
+        <img src="./Imagens/Briefing_logo_stickers.png" alt="Logo" style="height: 70px;">
+        <h1>MEU PERFIL</h1>
+        <button class="menu-btn" onclick="toggleSidebar(event)">☰</button>
+    </header>
+    <div class="sidebar" id="sidebar">
+        <a href="/Pagina_Criar_Projeto/Index.html">Criar Projeto</a>
+        <a href="#">Meus Projetos</a>
+        <a href="/Pagina_Portfólio/index.html">Meu Perfil</a>
+        <a href="#">Sair</a>
+    </div>
+    <div class="person-bar">
+        <h2>Aisha Al-Mansour</h2>
+        <div class="person-group">
+            <img src="./Imagens/Aisha.jpg" alt="Aisha" width="190px" height="auto" class="aisha-img">
+            <div> <!--Estrela de avaliação-->
+                <div class="radio-input">
+                    <input
+                      value="value-1"
+                      name="value-radio"
+                      id="value-1"
+                      type="radio"
+                      class="star s1"
+                    />
+                    <input
+                      value="value-2"
+                      name="value-radio"
+                      id="value-2"
+                      type="radio"
+                      class="star s2"
+                    />
+                    <input
+                      value="value-3"
+                      name="value-radio"
+                      id="value-3"
+                      type="radio"
+                      class="star s3"
+                    />
+                    <input
+                      value="value-4"
+                      name="value-radio"
+                      id="value-4"
+                      type="radio"
+                      class="star s4"
+                    />
+                    <input
+                      value="value-5"
+                      name="value-radio"
+                      id="value-5"
+                      type="radio"
+                      class="star s5"
+                    />
+                  </div>
+            </div>
+            <p>🎨 Designer apaixonada por cores, formas e inovação. Amante da criatividade e da<br> harmonia visual, estou sempre em busca de novos desafios e oportunidades para<br> criar algo único.</p>
+
+            <p>🌍 Nascida para o design, encontro inspiração em cada detalhe do dia a dia. Meu<br> objetivo é transformar ideias em experiências visuais memoráveis, combinando<br> estética e funcionalidade de maneira única.</p>
+                
+            <p>💼 Com uma abordagem colaborativa, valorizo a comunicação e a capacidade de<br> entender as necessidades dos clientes para criar soluções visuais que se destacam.</p>
+                
+            <p>🔧 Além de dominar ferramentas de design, estou constantemente explorando<br> novas técnicas e tendências para aprimorar meu trabalho e oferecer resultados<br> impressionantes.</p>
+        </div>
+        
+    </div>
+    <div class="content">
+        <div class="grid-container" id="grid-container">
+        </div>
+        <div>
+          <h1>Meu Portfólio</h1>
+        </div>
+        <div class="facebook"> <!--ícone facebook-->
+        <img src="./Imagens/facebook.png" width="40px">
+        <p>Facebook.com/Aisha_Al-Mansour</p>
+        </div>
+
+        <div class="instagram"><!--ícone instagram-->
+        <img src="./Imagens/instagram.png" width="40px">
+        <p>Instagram.com/Aisha_Al-Mansour</p>
+      </div>
+
+        <div class="linkedin"><!--ícone linkedin-->
+        <img src="./Imagens/linkedin.png" width="40px">
+        <p>LinkedIn.com/Aisha_Al-Mansour</p>
+      </div>
+
+      <!--Cursos-->
+
+      <div class="curso1">
+        <h3>Cursos</h3>
+      </div>
+
+      <div class="curso11">
+        <p>- Curso Avançado em Design Gráfico - Instituto de Design Criativo (2015)</p>
+      </div>
+      <div class="curso12">
+        <p>- Certificação em UI/UX Design - Online Course Academy (2017)</p>
+      </div>
+      <div class="curso13">
+        <p>- Workshop de Tipografia Moderna - Design Institute (2018)</p>
+      </div>
+
+      <!--Premiações-->
+
+      <div class="curso1">
+        <h3>Premiações</h3>
+      </div>
+
+      <div class="curso11">
+        <p>- Prêmio de Melhor Projeto de Design de Interface - Conferência de Design Digital (2018)</p>
+      </div>
+      <div class="curso12">
+        <p>- Menção Honrosa em Design Editorial - Concurso Nacional de Design (2019)</p>
+      </div>
+      <div class="curso13">
+        <p>- Prêmio de Excelência em Design Gráfico - Associação de Designers Criativos (2020)</p>
+      </div>
+      <div class="curso14">
+        <p>- Destaque em Inovação em UX Design - Tech Expo Awards (2022)</p>
+      </div>
+
+      <!--Experiência-->
+
+      <div class="curso1">
+        <h3>Experiência</h3>
+      </div>
+
+      <div class="curso11">
+        <p>- Mais de 8 anos trabalhando como designer gráfico e UI/UX designer em agências de renome nacional e<br> internacional.</p>
+      </div>
+      <div class="curso12">
+        <p>- Coordenadora de Equipe de Design na Agência Criativa X desde 2017.</p>
+      </div>
+      <hr class="barra">
+      </div>
+      <div class="linha"></div>
+
+    <script src="script.js"></script>
+
+<!--Imagens do portfólio-->
+<div>
+    <div class="gallery">
+      <div class="image">
+          <img src="./images/gallery01.jpg" alt="Imagem 1">
+      </div>
+      <div class="image">
+          <img src="./images/gallery02.jpg" alt="Imagem 2">
+      </div>
+      <div class="image">
+          <img src="./images/gallery03.jpg" alt="Imagem 3">
+      </div>
+      <div class="image">
+          <img src="./images/gallery04.jpg" alt="Imagem 4">
+      </div>
+      <div class="image">
+          <img src="./images/gallery05.jpg" alt="Imagem 5">
+      </div>
+      <div class="image">
+          <img src="./images/gallery06.jpg" alt="Imagem 6">
+      </div>
+      <div class="image">
+          <img src="./images/gallery07.jpg" alt="Imagem 7">
+      </div>
+    </div>
+
+
+    <!-- Lightbox para as imagens da galeria-->
+    <div id="lightbox" class="lightbox">
+      <span class="close-btn" onclick="closeLightbox()">&times;</span>
+      <img src="" alt="" class="lightbox-img">
+      <div class="nav-btn prev-btn" onclick="changeImage(-1)">&#10094;</div>
+      <div class="nav-btn next-btn" onclick="changeImage(1)">&#10095;</div>
+    </div>
+</div>
+    
+</body>
+</html>
