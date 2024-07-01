@@ -340,7 +340,7 @@ p {
     height: 1.5px;
     width: 868px; /* Calcula a largura da linha para ir até o final da página a partir da margem esquerda */
     background-color: #C256FC;
-    z-index: 9999; /* Garante que a linha esteja acima de outros elementos */
+    z-index: 0; /* Garante que a linha esteja acima de outros elementos */
 }
 
 
