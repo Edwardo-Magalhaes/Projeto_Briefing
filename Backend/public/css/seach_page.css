@@ -230,7 +230,7 @@ header {
     border-radius: 10px;
     transition: transform 0.3s ease;
     width: 100%; /* Ensures the grid item takes the full width of the column */
-    height: 150px; /* Fixed height for consistency */
+    height: 350px; /* Fixed height for consistency */
     box-sizing: border-box; /* Ensures padding is included in the height/width */
 }
 
