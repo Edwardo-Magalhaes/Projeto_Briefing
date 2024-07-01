@@ -1,0 +1,443 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction:row;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(112, 0, 216, 1); /* Cor sólida sem transparência */
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 80px;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+
+
+.logo {
+    font-size: 1.5em;
+    margin-left: 200px;
+}
+
+.container {
+    position: relative;
+    background: linear-gradient(135deg, rgb(179, 208, 253) 0%, rgb(164, 202, 248) 100%);
+    border-radius: 500px; /* Reduzindo a borda */
+    padding: 5px; /* Reduzindo o padding */
+    display: grid;
+    place-content: center;
+    z-index: 0;
+    max-width: 200px; /* Reduzindo a largura máxima */
+    margin: 0 5px; /* Reduzindo a margem */
+    
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+    border-radius: 25px; /* Reduzindo a borda */
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    padding: 3px; /* Reduzindo o padding */
+    max-width: 200px; /* Reduzindo a largura máxima */
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+.search-container:hover{
+    max-width: 250px;
+}
+
+.search-container::after, .search-container::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    position: absolute;
+}
+
+.search-container::before {
+    top: -0.5px; /* Reduzindo a posição */
+    left: -0.5px; /* Reduzindo a posição */
+    background: linear-gradient(0deg, rgb(218, 232, 247) 0%, rgb(255, 255, 255) 100%);
+    z-index: 0;
+}
+
+.search-container::after {
+    bottom: -0.5px; /* Reduzindo a posição */
+    right: -0.5px; /* Reduzindo a posição */
+    background: linear-gradient(0deg, rgb(163, 206, 255) 0%, rgb(211, 232, 255) 100%);
+    box-shadow: rgba(79, 156, 232, 0.7) 2px 2px 3px 0px, rgba(79, 156, 232, 0.7) 3px 3px 10px 0px; /* Reduzindo a sombra */
+    z-index: 0;
+}
+
+.input {
+    padding: 5px; /* Reduzindo o padding */
+    width: 100%;
+    background: linear-gradient(135deg, rgb(218, 232, 247) 0%, rgb(214, 229, 247) 100%);
+    border: none;
+    color: #9EBCD9;
+    font-size: 16px; /* Reduzindo o tamanho da fonte */
+    border-radius: 25px; /* Reduzindo a borda */
+}
+
+.input:focus {
+    outline: none;
+    background: linear-gradient(135deg, rgb(239, 247, 255) 0%, rgb(214, 229, 247) 100%);
+}
+
+.search__icon {
+    width: 30px; /* Reduzindo a largura */
+    aspect-ratio: 1;
+    border-left: 1px solid white; /* Reduzindo a borda */
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-radius: 50%;
+    padding-left: 6px; /* Reduzindo o padding */
+    margin-right: 5px; /* Reduzindo a margem */
+    cursor: pointer;
+    position: relative;
+    z-index: 0; /* Ensures the SVG is on top */
+        
+    
+}
+
+.search-button {
+    position: absolute;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 0; /* Ensures the button is behind the SVG */
+    opacity: 0; /* Makes the button invisible */
+}
+
+
+.search__icon:hover {
+    border-left: 2px solid white; /* Reduzindo a borda ao hover */
+}
+
+.search__icon path {
+    fill: white;
+}
+
+.menu-btn {
+    background-color: #bfb7b7;
+    color: white;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.sidebar {
+    margin-top: 80px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(112, 0, 216, 1);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 80px;
+    z-index: 99999999999;
+}
+
+.sidebar a {
+
+    padding: 30px 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    z-index: 0;
+}
+
+.sidebar a:hover {
+    background-color: #C256FC;
+    z-index: 0;
+}
+
+.person-bar {
+    width: 650px;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: calc(100% - 80px);
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 0;
+}
+
+.person-bar h2 {
+    margin-left: 200px;
+    margin-top: 0;
+}
+
+.person-group {
+    margin-bottom: 20px;
+}
+
+.person-group h3 {
+    margin-left: 225px;
+    margin-bottom: 10px;
+}
+
+.person-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+/*Avaliação em estrelas*/
+.radio-input {
+    margin-left: 50px;
+    display: flex;
+    scale: 0.15;
+    transform: rotate(180deg);
+  }
+  
+  .star {
+    margin: 1em;
+    appearance: none;
+    --color: rgb(199, 199, 199);
+    border-left: 6.4721359549996em solid transparent;
+    border-right: 6.4721359549996em solid transparent;
+    border-bottom: 4em solid var(--color);
+    transform: rotate(0deg);
+    cursor: pointer;
+  }
+  
+  .star:before {
+    content: "";
+    border-left: 6.4721359549996em solid transparent;
+    border-right: 6.4721359549996em solid transparent;
+    border-top: 4em solid var(--color);
+    position: absolute;
+    left: -6.4721359549996em;
+    transform: rotate(108deg);
+  }
+  
+  .star:after {
+    content: "";
+    border-left: 6.4721359549996em solid transparent;
+    border-right: 6.4721359549996em solid transparent;
+    border-top: 4em solid var(--color);
+    position: absolute;
+    left: -6.4721359549996em;
+    transform: rotate(253deg);
+  }
+  
+  .radio-input > .star:hover ~ .star,
+  .radio-input > .star:hover,
+  .radio-input > .star:checked ~ .star,
+  .radio-input > .star:checked {
+    --color: yellow;
+  }
+  
+  .radio-input > .star:checked ~ .star,
+  .radio-input > .star:checked {
+    animation: rotate 0.5s linear forwards;
+    transform: rotate(360deg);
+    transition: transform 0.3s;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      scale: 1.5;
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  p {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  h1{
+    margin-right: 160px;
+  }
+
+.aisha-img {
+    margin-left: 205px;
+}
+
+.content {
+    background-color: #C256FC;
+    margin-left: 650px;
+    margin-top: 80px;
+    width: 2px;
+    height: 2500px;
+    z-index: 0;
+    align-items: end;
+}
+
+h1 {
+    margin-left: 50px;
+    white-space: nowrap;
+}
+
+.facebook {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.instagram {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.linkedin {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-left: 15px;
+    white-space: nowrap;
+}
+
+.linha {
+    position: absolute;
+    top: 360px; /* Define a margem superior onde a linha começará */
+    left: 650px; /* Define a margem esquerda onde a linha começará */
+    height: 1.5px;
+    width: 868px; /* Calcula a largura da linha para ir até o final da página a partir da margem esquerda */
+    background-color: #C256FC;
+    z-index: 9999; /* Garante que a linha esteja acima de outros elementos */
+}
+
+
+.curso1, .curso11, .curso12, .curso13, .curso14 {
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+    margin-top: 10px; /* Ajustei o margin-top para ficar mais uniforme */
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+}
+
+@media (max-width: 768px) {
+    .curso1, .curso11, .curso12, .curso13 {
+        margin-left: 0; /* Remove a margem lateral em telas menores */
+        margin-top: 10px; /* Ajusta o margin-top para manter o espaçamento */
+    }
+}
+
+.barra {
+    height: 1px;
+    margin-left: 2px;
+    width: 865px;
+    background-color: #C256FC;
+}
+
+
+/*Lighbox da galeria*/
+
+/* Estilos para a lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro semitransparente */
+    z-index: 9999;
+    text-align: center;
+}
+
+.lightbox-img {
+    max-width: 80%;
+    max-height: 80%;
+    margin-top: 10vh; /* Centraliza verticalmente */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.3s ease;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* Esconde os botões de navegação quando não há imagem anterior ou seguinte */
+.prev-btn.hidden,
+.next-btn.hidden {
+    display: none;
+}
+
+.gallery {
+    display: flex;
+    margin-top: 1150px; /* Margem de 100px do último elemento visível */;
+    background-color: #ffffff; /* Cor de fundo para distinção */
+    clear: both;
+    flex-wrap: wrap;
+}
+
+.image {
+    width: 40%; /* Definir 40% do tamanho do container pai */
+    margin: 5px; /* Espaçamento entre as imagens */
+}
+
+.image img {
+    width: 100%; /* Garantir que a imagem preencha o espaço disponível */
+    height: auto; /* Manter proporção original da imagem */
+    display: block; /* Evitar espaços em branco abaixo da imagem */
+}
