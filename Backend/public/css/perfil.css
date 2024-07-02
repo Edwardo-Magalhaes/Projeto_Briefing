@@ -287,7 +287,7 @@ header {
     margin-left: 650px;
     margin-top: 80px;
     width: 2px;
-    height: 2500px;
+    height: 3070px;
     z-index: 0;
     align-items: end;
 }
@@ -338,7 +338,7 @@ p {
     top: 360px; /* Define a margem superior onde a linha começará */
     left: 650px; /* Define a margem esquerda onde a linha começará */
     height: 1.5px;
-    width: 868px; /* Calcula a largura da linha para ir até o final da página a partir da margem esquerda */
+    width: 1250px; /* Calcula a largura da linha para ir até o final da página a partir da margem esquerda */
     background-color: #C256FC;
     z-index: 0; /* Garante que a linha esteja acima de outros elementos */
 }
@@ -362,7 +362,7 @@ p {
 .barra {
     height: 1px;
     margin-left: 2px;
-    width: 865px;
+    width: 1250px;
     background-color: #C256FC;
 }
 
